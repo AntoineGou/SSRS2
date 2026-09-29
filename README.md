@@ -2,7 +2,7 @@
 
 **Generate pixel-perfect PDFs, Excel, Word, and HTML reports from RDLC files on any platform.**
 
-Drop-in replacement for Microsoft Report Viewer — runs on Windows, Linux, macOS, Docker, Kubernetes, and cloud environments. No GDI+, no `libgdiplus`, no native dependencies.
+Drop-in replacement for Microsoft Report Viewer — runs on Windows, Linux, macOS, Docker, Kubernetes, and cloud environments. No GDI+ and no `libgdiplus`: on Linux it needs only fontconfig, which most systems have (the official .NET Docker images need `libfontconfig1`, see below).
 
 <p align="center">
   <a href="https://www.nuget.org/packages/SSRS2.NETCore">
@@ -25,7 +25,7 @@ dotnet add package SSRS2.NETCore
 ```
 
 ```csharp
-using Ssrs2.Reporting;
+using SSRS2.Reporting.NETCore;
 
 var report = new LocalReport();
 report.LoadReportDefinition(rdlcStream);
@@ -36,18 +36,26 @@ byte[] pdf = report.Render("PDF");
 
 Your existing `.rdlc` files work without modification. No code rewrite needed.
 
+In a Linux container, add fontconfig, which the official .NET images lack:
+
+```dockerfile
+RUN apt-get update && apt-get install -y --no-install-recommends libfontconfig1 && rm -rf /var/lib/apt/lists/*
+```
+
 > **Free trial** — works without a license key. Output includes a small watermark until activated.  
 > Get a license at [ssrs2.net](https://ssrs2.net) or call `Ssrs2.License.Activate("your-key")` to remove it.
+
+> **Try it in the browser** — the [online designer](https://designer.ssrs2.net/designer?utm_source=github) (beta) opens your `.rdlc`, previews it as SSRS2 renders it on Linux and exports PDF, Excel or Word. No install, no account.
 
 ---
 
 ## Why SSRS2?
 
-Microsoft deprecated ReportViewer for .NET Core and wants everyone on [Power BI Paginated Reports](https://ssrs2.net/ssrs-to-dotnet-core) ($24/user/month). If you have existing RDLC reports and need to run them on modern .NET, your options are limited:
+Microsoft's Report Viewer runs on .NET Framework and Windows only: Microsoft declined to port it to .NET Core and points to [Power BI paginated reports](https://ssrs2.net/ssrs-to-dotnet-core) instead (from $14 per viewer per month). If you have existing RDLC reports and need to run them on modern .NET, your options are limited:
 
 | | SSRS2 | ReportViewerCore (free) | Power BI Paginated |
 |---|---|---|---|
-| **Linux / Docker** | ✅ Native (SkiaSharp) | ⚠️ Needs libgdiplus | ❌ Cloud only |
+| **Linux / Docker** | ✅ PDF and images included (with `libfontconfig1`) | ⚠️ HTML, Excel, Word; PDF and images rely on Windows font measurement | ❌ Cloud only |
 | **No GDI+ dependency** | ✅ | ❌ System.Drawing | N/A |
 | **.NET 8 / 9 / 10** | ✅ | ✅ | N/A |
 | **.NET Framework 4.7.2+** | ✅ | ❌ | N/A |
@@ -69,6 +77,7 @@ Microsoft deprecated ReportViewer for .NET Core and wants everyone on [Power BI 
 | PNG | `"PNG"` | .png |
 | JPEG | `"JPEG"` | .jpg |
 | WebP | `"WEBP"` | .webp |
+| TIFF (all pages) | `"IMAGE"` | .tif |
 | CSV | `"CSV"` | .csv |
 | XML | `"XML"` | .xml |
 
@@ -106,7 +115,7 @@ Microsoft deprecated ReportViewer for .NET Core and wants everyone on [Power BI 
 using Microsoft.Reporting.WinForms;
 
 // After (SSRS2 — runs anywhere)
-using Ssrs2.Reporting;
+using SSRS2.Reporting.NETCore;
 
 // Same API. Same RDLC files. Any platform.
 var report = new LocalReport();
@@ -125,10 +134,9 @@ byte[] pdf = report.Render("PDF");
 
 SSRS2 is a commercial product with a **free trial** (watermarked output).
 
-- **Unlimited developers** — no per-seat fees
-- **Unlimited servers** — no per-deployment fees
-- **Revenue-based pricing** — starts at $2,000/year
-- **All features included** in every tier
+- **One licence per company** — no per-seat or per-server fees
+- **Unlimited developers, reports and render volume**
+- **All features included** in every licence
 
 See [ssrs2.net/pricing](https://ssrs2.net/pricing) for details.
 
@@ -140,6 +148,7 @@ See [ssrs2.net/pricing](https://ssrs2.net/pricing) for details.
 |----------|------|
 | 🌐 Website | [ssrs2.net](https://ssrs2.net) |
 | 🎮 Live Demo | [ssrs2.net/demo](https://ssrs2.net/demo) |
+| 🎨 Online Designer (beta) | [designer.ssrs2.net](https://designer.ssrs2.net/designer?utm_source=github) |
 | 📖 Migration Guide | [ssrs2.net/ssrs-to-dotnet-core](https://ssrs2.net/ssrs-to-dotnet-core) |
 | 📊 Feature Comparison | [ssrs2.net/compare](https://ssrs2.net/compare) |
 | 💰 Pricing | [ssrs2.net/pricing](https://ssrs2.net/pricing) |
