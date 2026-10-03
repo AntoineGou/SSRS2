@@ -85,6 +85,16 @@ Microsoft's Report Viewer runs on .NET Framework and Windows only: Microsoft dec
 
 ---
 
+## Beyond rendering
+
+- **Check a report without running it:** `report.CheckDefinition()` returns each problem of a definition (its code, item, property and expression), without rendering it.
+- **Reports your application did not write:** `RestrictedCode = true` holds their expressions and custom code to what a report computes with: no files, environment, processes or reflection (.NET 8, 9 and 10).
+- **PDF settings:** the report's title and author, passwords and permissions (AES-256), or PDF/A-2b for archives.
+- **A viewer of your own:** `Toggle`, `Sort`, `FindBookmark`, `FindDocumentMapNode` and `Drillthrough` do what Report Viewer's control does on a click.
+- **AI coding agents:** `dnx SSRS2.Mcp` gives Claude Code, Cursor or VS Code tools that check and preview the reports they write, on your machine ([SSRS2.Mcp](https://www.nuget.org/packages/SSRS2.Mcp)).
+
+---
+
 ## Platform Support
 
 | Platform | Status |
