@@ -163,6 +163,7 @@ Buy online at [ssrs2.net/pricing](https://ssrs2.net/pricing); the [licence terms
 | 📊 Feature Comparison | [ssrs2.net/compare](https://ssrs2.net/compare) |
 | 💰 Pricing | [ssrs2.net/pricing](https://ssrs2.net/pricing) |
 | 📝 Medium Article | [SSRS to .NET Core: 3 Options Compared](https://medium.com/@ago-m/ssrs-to-net-core-your-3-migration-options-compared-1cc666b5bd56) |
+| 🤖 Medium Article | [Designing SSRS reports with an AI agent](https://medium.com/@ago-m/designing-ssrs-reports-with-an-ai-agent-d134fe640d00) |
 | 📦 NuGet | [nuget.org/packages/SSRS2.NETCore](https://www.nuget.org/packages/SSRS2.NETCore) |
 
 ---
