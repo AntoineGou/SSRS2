@@ -51,11 +51,11 @@ RUN apt-get update && apt-get install -y --no-install-recommends libfontconfig1 
 
 ## Why SSRS2?
 
-Microsoft's Report Viewer runs on .NET Framework and Windows only: Microsoft declined to port it to .NET Core and points to [Power BI paginated reports](https://ssrs2.net/ssrs-to-dotnet-core) instead (from $14 per viewer per month). If you have existing RDLC reports and need to run them on modern .NET, your options are limited:
+Microsoft's Report Viewer runs on .NET Framework and Windows only, and has no .NET 8, 9 or 10 version (checked 2026-10-01). Microsoft points to [Power BI paginated reports](https://www.microsoft.com/en-us/power-platform/products/power-bi/pricing) instead, which come with Power BI Pro at USD 14 per user per month. If you have existing RDLC reports and need to run them on modern .NET, your options are limited:
 
 | | SSRS2 | ReportViewerCore (free) | Power BI Paginated |
 |---|---|---|---|
-| **Linux / Docker** | ✅ PDF and images included (with `libfontconfig1`) | ⚠️ HTML, Excel, Word; PDF and images rely on Windows font measurement | ❌ Cloud only |
+| **Linux / Docker** | ✅ PDF and images included (with `libfontconfig1`) | ⚠️ HTML, Excel, Word | ❌ Cloud only |
 | **No GDI+ dependency** | ✅ | ❌ System.Drawing | N/A |
 | **.NET 8 / 9 / 10** | ✅ | ✅ | N/A |
 | **.NET Framework 4.7.2+** | ✅ | ❌ | N/A |
@@ -73,6 +73,7 @@ Microsoft's Report Viewer runs on .NET Framework and Windows only: Microsoft dec
 | PDF (with hyperlinks) | `"PDF"` | .pdf |
 | Excel | `"EXCELOPENXML"` | .xlsx |
 | Word | `"WORDOPENXML"` | .docx |
+| PowerPoint (editable slides) | `"PPTX"` | .pptx |
 | HTML5 | `"HTML5"` | .html |
 | HTML 4.0 | `"HTML4.0"` | .html |
 | MHTML | `"MHTML"` | .mhtml |
@@ -100,10 +101,10 @@ Microsoft's Report Viewer runs on .NET Framework and Windows only: Microsoft dec
 | Platform | Status |
 |----------|--------|
 | Windows x64 | ✅ |
-| Linux x64 and ARM64 (Debian, Ubuntu, RHEL, Alpine) | ✅ |
-| macOS (Intel & Apple Silicon) | ✅ |
-| Docker & Kubernetes (Linux containers) | ✅ |
-| Azure App Service, AWS ECS, Google Cloud Run | ✅ wherever those containers run |
+| Linux x64 and ARM64 | ✅ |
+| macOS | ✅ |
+| Docker containers | ✅ |
+| Azure App Service (where ssrs2.net runs) | ✅ |
 
 ### .NET Framework Support
 
