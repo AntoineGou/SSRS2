@@ -2,6 +2,8 @@
 
 **Run the RDLC reports you already have on any platform: PDF, Excel, Word, HTML and images, laid out as Microsoft's Report Viewer lays them out.**
 
+https://github.com/user-attachments/assets/66406aec-b92b-40cf-b031-2d506de34857
+
 Drop-in replacement for the `LocalReport` of Microsoft's Report Viewer — runs on Windows, Linux, macOS, Docker, Kubernetes, and cloud environments. No GDI+ and no `libgdiplus`: on Linux it needs only fontconfig, which most systems have (the official .NET Docker images need `libfontconfig1`, see below).
 
 <p align="center">
