@@ -63,7 +63,7 @@ Microsoft's Report Viewer runs on .NET Framework and Windows only, and has no .N
 | **.NET Framework 4.7.2+** | ✅ | ❌ | N/A |
 | **macOS / ARM64** | ✅ | ⚠️ Partial | ❌ |
 | **Self-hosted** | ✅ | ✅ | ❌ |
-| **Support** | Sold separately | Community | Microsoft |
+| **Support** | Basic support included | Community | Microsoft |
 | **Data sovereignty** | ✅ On your infra | ✅ | ❌ Cloud |
 
 ---
@@ -149,7 +149,8 @@ SSRS2 is a commercial product with a **free trial** (watermarked output).
 - **One licence per company: USD 799 a year, or USD 1,999 for three years** — no per-seat or per-server fees
 - **Unlimited developers, applications, servers and renders**: nothing is counted, and the key is checked offline
 - **All features included** in every licence, with every release published while it runs; a key keeps working forever with those releases
-- **Not included**: support, migration help and custom work (sold separately), and shipping SSRS2 inside software other companies install (a separate redistribution licence)
+- **Basic support included**: open a ticket at [ssrs2.net/support](https://ssrs2.net/support) or write to [support@ssrs2.net](mailto:support@ssrs2.net)
+- **Not included**: migration help and custom work (sold separately), and shipping SSRS2 inside software other companies install (a separate redistribution licence)
 
 Buy online at [ssrs2.net/pricing](https://ssrs2.net/pricing); the [licence terms](https://ssrs2.net/terms) are one page.
 
@@ -177,7 +178,8 @@ Buy online at [ssrs2.net/pricing](https://ssrs2.net/pricing); the [licence terms
 |---------|---------|
 | [GitHub Issues](https://github.com/AntoineGou/SSRS2/issues) | Bug reports & feature requests |
 | [ssrs2.net](https://ssrs2.net) | Documentation & demos |
-| [sales@ssrs2.net](mailto:sales@ssrs2.net) | Licences, and support or migration help (sold separately) |
+| [support@ssrs2.net](mailto:support@ssrs2.net) or [ssrs2.net/support](https://ssrs2.net/support) | Support tickets (basic support is included with every licence) |
+| [sales@ssrs2.net](mailto:sales@ssrs2.net) | Licences, and migration help (sold separately) |
 
 ---
 
